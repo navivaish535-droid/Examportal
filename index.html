@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Examination System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <h2>ExamPortal</h2>
+
+    <div class="nav-links">
+        <button onclick="showPage('homePage')">Home</button>
+        <button onclick="showPage('aboutPage')">About</button>
+        <button onclick="showPage('contactPage')">Contact</button>
+        <button onclick="showPage('loginPage')">Sign In</button>
+        <button onclick="showPage('signupPage')">Sign Up</button>
+    </div>
+</nav>
+
+<div class="container">
+
+    <!-- Home Page -->
+    <section id="homePage" class="card">
+        <h1>Welcome to ExamPortal</h1>
+        <h2>Online Examination System</h2>
+        <p>Test your knowledge. Improve your skills. Achieve success.</p>
+        <button onclick="showPage('loginPage')">Get Started</button>
+        <button onclick="showPage('signupPage')">Create Account</button>
+    </section>
+
+    <!-- Sign Up -->
+    <section id="signupPage" class="card hidden">
+        <h1>Create Account</h1>
+
+        <input type="text" id="signupName" placeholder="Full Name">
+        <input type="email" id="signupEmail" placeholder="Email Address">
+        <input type="password" id="signupPassword" placeholder="Create Password">
+
+        <button onclick="signup()">Sign Up</button>
+
+        <p>Already have an account?
+            <a href="#" onclick="showPage('loginPage')">Sign In</a>
+        </p>
+    </section>
+
+    <!-- Sign In -->
+    <section id="loginPage" class="card hidden">
+        <h1>Sign In</h1>
+
+        <input type="email" id="loginEmail" placeholder="Email Address">
+        <input type="password" id="loginPassword" placeholder="Password">
+
+        <button onclick="login()">Sign In</button>
+
+        <p>Don't have an account?
+            <a href="#" onclick="showPage('signupPage')">Sign Up</a>
+        </p>
+    </section>
+
+    <!-- Dashboard -->
+    <section id="dashboardPage" class="card hidden">
+        <h1>Student Dashboard</h1>
+
+        <h2 id="studentWelcome"></h2>
+
+        <p>Welcome to your examination dashboard.</p>
+
+        <div class="dashboard-buttons">
+            <button onclick="showPage('instructionsPage')">
+                Start Examination
+            </button>
+
+            <button onclick="showPage('aboutPage')">
+                About Exam
+            </button>
+
+            <button onclick="logout()">Logout</button>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="aboutPage" class="card hidden">
+        <h1>About Us</h1>
+        <p>
+            ExamPortal is an online examination platform
+            designed to help students take tests easily.
+        </p>
+        <button onclick="showPage('homePage')">Back to Home</button>
+    </section>
+
+    <!-- Contact -->
+    <section id="contactPage" class="card hidden">
+        <h1>Contact Us</h1>
+        <p>Email: support@examportal.com</p>
+        <p>Phone: +91 9876543210</p>
+        <button onclick="showPage('homePage')">Back to Home</button>
+    </section>
+
+    <!-- Instructions -->
+    <section id="instructionsPage" class="card hidden">
+        <h1>Exam Instructions</h1>
+
+        <ul>
+            <li>Total Questions: 10</li>
+            <li>Time Duration: 30 Minutes</li>
+            <li>Each question carries 1 mark.</li>
+            <li>Select one correct answer.</li>
+            <li>Submit before the timer ends.</li>
+        </ul>
+
+        <button onclick="beginExam()">Begin Exam</button>
+        <button onclick="showPage('dashboardPage')">Back</button>
+    </section>
+
+    <!-- Exam -->
+    <section id="examPage" class="card hidden">
+
+        <div class="exam-header">
+            <h2>Online Examination</h2>
+            <div class="timer">
+                Time: <span id="time">30:00</span>
+            </div>
+        </div>
+
+        <h3 id="welcome"></h3>
+
+        <div class="progress">
+            <div id="progressBar"></div>
+        </div>
+
+        <p id="questionNumber"></p>
+        <h3 id="question"></h3>
+
+        <div id="options"></div>
+
+        <div class="navigation">
+            <button onclick="previousQuestion()">Previous</button>
+            <button onclick="nextQuestion()">Next</button>
+        </div>
+
+        <div class="question-list" id="questionList"></div>
+
+        <button class="submit" onclick="submitExam()">
+            Submit Examination
+        </button>
+    </section>
+
+    <!-- Result -->
+    <section id="resultPage" class="card hidden">
+        <h1>Examination Result</h1>
+
+        <h2 id="resultName"></h2>
+        <h2 id="score"></h2>
+        <h2 id="percentage"></h2>
+
+        <p id="message"></p>
+
+        <button onclick="showPage('dashboardPage')">
+            Dashboard
+        </button>
+
+        <button onclick="logout()">Logout</button>
+    </section>
+
+</div>
+
+<script src="demo.js"></script>
+</body>
+</html>
+
